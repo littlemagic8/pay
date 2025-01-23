@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Wildcard虚拟卡</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: inline-block;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            cursor: pointer;
+        }
+        .countdown {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+        }
+        .countdown canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .countdown .time {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #333;
+            flex-direction: column;
+        }
+        .time .secs-label {
+            font-size: 16px;
+            color: #aaa;
+        }
+        .status-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .status-container a {
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .status-container .status {
+            color: green;
+        }
+        .btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            max-width: 280px;
+        }
+        .secure-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #4CAF50;
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .secure-container img {
+            height: 24px;
+            margin-right: 16px;
+        }
+        .secure-container .text {
+            display: inline-block;
+            line-height: 1.2;
+        }
+        .secure-container .text .title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .secure-container .text .subtitle {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <h1>🌈Wildcard虚拟卡🚀</h1>
+        <p id="loadingText">安全检测中...</p >
+        <div class="countdown">
+            <canvas id="countdownCanvas" width="150" height="150"></canvas>
+            <div class="time" id="countdownTime">
+                <span>5</span>
+                <span class="secs-label">secs</span>
+            </div>
+        </div>
+        
+        <div class="status-container">
+            <p id="statusText" class="status"></p >
+        </div>
+        
+        <div class="secure-container">
+            <img src="https://cdn.how2cs.cn/2024-08-25-044033.png" alt="Secure Icon">
+            <div class="text">
+                <div class="title">secure</div>
+                <div class="subtitle">安全加密</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const targetUrl = 'https://bewildcard.com/i/GPT888';  // 默认链接
+
+        window.onload = function() {
+            setTimeout(function() {
+                window.location.href = targetUrl;  // 自动跳转
+            }, 1500);  // 延时 1.5 秒后跳转
+        };
+    </script>
+
+</body>
+</html>
