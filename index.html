@@ -103,13 +103,13 @@
           var s = document.getElementsByTagName("script")[0]; 
           s.parentNode.insertBefore(hm, s);
         })();
-        </script>
+    </script>
 </head>
 <body>
 
     <div class="container" id="mainContainer">
         <h1>🌈Wildcard虚拟卡🚀</h1>
-        <p id="loadingText">安全检测中...</p >
+        <p id="loadingText">安全检测中...</p>
         <div class="countdown">
             <canvas id="countdownCanvas" width="150" height="150"></canvas>
             <div class="time" id="countdownTime">
@@ -119,11 +119,11 @@
         </div>
         
         <div class="status-container">
-            <p id="statusText" class="status"></p >
+            <p id="statusText" class="status"></p>
         </div>
         
         <div class="secure-container">
-            <img src="https://cdn.how2cs.cn/2024-08-25-044033.png" alt="Secure Icon">
+            <img src="https://picx.zhimg.com/80/v2-de8fafb9c61eca110a04b7c8bc09dfff_720w.png" alt="Secure Icon">
             <div class="text">
                 <div class="title">secure</div>
                 <div class="subtitle">安全加密</div>
@@ -132,13 +132,56 @@
     </div>
 
     <script>
-        const targetUrl = 'https://yeka.ai/i/DW62';  // 默认链接
+        const targetUrl = 'https://yeka.ai/i/DW62'; // 目标跳转链接
+        let countdown = 5; // 倒计时时间
 
-        window.onload = function() {
-            setTimeout(function() {
-                window.location.href = targetUrl;  // 自动跳转
-            }, 1500);  // 延时 1.5 秒后跳转
-        };
+        // 初始化倒计时显示
+        const countdownElement = document.getElementById('countdownTime');
+        countdownElement.querySelector('span').textContent = countdown;
+
+        // 绘制倒计时
+        const canvas = document.getElementById('countdownCanvas');
+        const ctx = canvas.getContext('2d');
+        const radius = canvas.width / 2;
+        const lineWidth = 15;
+
+        function drawCountdown(remainingTime) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.arc(radius, radius, radius - lineWidth / 2, 0, 2 * Math.PI);
+            ctx.strokeStyle = '#f0f0f0';
+            ctx.lineWidth = lineWidth;
+            ctx.stroke();
+
+            const endAngle = (2 * Math.PI * (5 - remainingTime)) / 5;
+            ctx.beginPath();
+            ctx.arc(radius, radius, radius - lineWidth / 2, -Math.PI / 2, endAngle - Math.PI / 2, false);
+            ctx.strokeStyle = '#007bff';
+            ctx.lineWidth = lineWidth;
+            ctx.stroke();
+
+            countdownElement.querySelector('span').textContent = remainingTime;
+        }
+
+        const countdownTimer = setInterval(() => {
+            countdown--;
+            drawCountdown(countdown);
+            if (countdown <= 0) {
+                clearInterval(countdownTimer);
+                window.location.href = targetUrl; // 倒计时结束后直接跳转
+            }
+        }, 1000);
+
+        // 检测目标链接是否可访问
+        fetch(targetUrl, { method: 'HEAD' })
+            .then(() => {
+                console.log('检测成功，跳转');
+                setTimeout(() => window.location.href = targetUrl, 1500);
+            })
+            .catch(() => {
+                console.log('检测失败，跳转');
+                setTimeout(() => window.location.href = targetUrl, 1500);
+            });
     </script>
 
 </body>
